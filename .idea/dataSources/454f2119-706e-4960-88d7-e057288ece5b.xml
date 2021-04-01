@@ -805,7 +805,7 @@ true posixrules
     <database id="5" parent="1" name="val">
       <ObjectId>25578</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>2595</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2599</IntrospectionStateNumber>
       <Relations>sequence|table|25579|25581|1
 sequence|table|25587|25589|1
 sequence|table|25607|25609|1
@@ -886,7 +886,7 @@ UC/10
 </Acl>
       <StateNumber>276</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>2596</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2600</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="20" parent="5" name="plpgsql">
