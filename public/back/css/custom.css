@@ -7,3 +7,6 @@
 .btn-question > .spinner-border{
     display: none;
 }
+.btn-reponse > .spinner-border{
+    display: none;
+}

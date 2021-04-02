@@ -85,4 +85,28 @@ class BackController extends Controller
         return response()->json(['success' => 'table-questions']);
     }
 
+    public function ajoutReponseDansQuestion($questionId)
+    {
+        $question = Question::find($questionId);
+        $redirectUrl = url('/') . '/admin/ajout-reponse/'.$questionId;
+        return view('admin.reponses.ajout-reponse')->with(compact('question', 'redirectUrl'));
+    }
+
+    public function soumettreReponse(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'question' => 'required|max:300',
+            'type' => 'required'
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()->all()]);
+        }
+        $q = Question::create([
+            'libelle' => $request->input('nom'),
+            'type' => $request->input('type'),
+            'formpage_id' => $request->input('id')
+        ]);
+        return response()->json(['success' => 'table-questions']);
+    }
+
 }
