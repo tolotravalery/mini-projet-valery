@@ -4,3 +4,6 @@
 .btn-page > .spinner-border{
     display: none;
 }
+.btn-question > .spinner-border{
+    display: none;
+}

@@ -15,7 +15,7 @@ class CreateQuestionsTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->string('question',300);
+            $table->string('libelle',300);
             $table->string('type',10)->default("multiple");
             $table->bigInteger('formpage_id')->unsigned()->index();
             $table->foreign('formpage_id')->references('id')->on('formpages')->onDelete('cascade');

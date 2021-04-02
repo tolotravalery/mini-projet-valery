@@ -13,7 +13,7 @@ class Question extends Model
         'id'
     ];
     protected $fillable = [
-        'question'
+        'libelle','type','formpage_id'
     ];
 
     public function formpage()

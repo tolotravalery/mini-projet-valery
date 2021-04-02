@@ -25,7 +25,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'admin'], function () {
         Route::get('/ajout-formulaire', 'BackController@ajoutFormulaire');
         Route::get('/ajout-page/{formId}', 'BackController@ajoutPageDansFormulaire');
+        Route::get('/ajout-question/form={formId}&page={pageId}', 'BackController@ajoutQuestionDansPage');
         Route::post('/soumettre-formulaire', 'BackController@soumettreFormulaire')->name('soumettre-formulaire');
         Route::post('/soumettre-page', 'BackController@soumettrePage')->name('soumettre-page');
+        Route::post('/soumettre-question', 'BackController@soumettreQuestion')->name('soumettre-question');
     });
 });

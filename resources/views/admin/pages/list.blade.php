@@ -13,7 +13,7 @@
         @foreach($pages as $p)
             <tr>
                 <td>Page #{{ $p->nom }}</td>
-                <td><a href="" target="_blank">Ajouter questions</a></td>
+                <td><a href="{{ url('/admin/ajout-question/form='.$p->form->id.'&page='.$p->id) }}" target="_blank">Ajouter questions</a></td>
             </tr>
         @endforeach
         </tbody>

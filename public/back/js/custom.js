@@ -74,3 +74,38 @@ let ajouterPage = function (url, formId) {
         },
     });
 };
+
+let ajouterQuestion = function (url, formId) {
+    console.log(toJSONBody($(formId).serializeArray()))
+    $('#error').html("");
+    $('#success').html("");
+    const spinner = $(".btn-question >.spinner-border").css('display', 'inline-block');
+    $.ajax(url, {
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        method: "POST",
+        contentType: "application/json",
+        data: toJSONBody($(formId).serializeArray()),
+        success: function (data) {
+            spinner.css('display', 'none');
+            if(data.errors){
+                jQuery.each(data.errors, function(key, value){
+                    $('#error').append(value+'<br/>');
+                });
+            }
+            if(data.success){
+                const res = $("#"+data.success);
+                const response = res.attr("data-response");
+                if (response === "OK") {
+                    $('#list-questions').html(data);
+                    const redirect = res.attr("data-url");
+                    if (redirect)
+                        window.location = redirect;
+                    else
+                        document.getElementById(formId.substr(1)).reset();
+                }
+            }
+        },
+    });
+};
