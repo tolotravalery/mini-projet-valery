@@ -18,7 +18,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">
+                    <a class="nav-link" href="{{ url('/admin/ajout-formulaire') }}">
                         <i class="nav-icon fas fa-question-circle"></i>
                         <p>Questionnaires</p>
                     </a>

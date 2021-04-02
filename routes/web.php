@@ -20,3 +20,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::group(['prefix' => 'admin'], function () {
+        Route::get('/ajout-formulaire', 'BackController@ajoutFormulaire');
+        Route::get('/ajout-page/{formId}', 'BackController@ajoutPageDansFormulaire');
+        Route::post('/soumettre-formulaire', 'BackController@soumettreFormulaire')->name('soumettre-formulaire');
+        Route::post('/soumettre-page', 'BackController@soumettrePage')->name('soumettre-page');
+    });
+});

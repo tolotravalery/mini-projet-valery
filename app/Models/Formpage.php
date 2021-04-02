@@ -13,7 +13,7 @@ class Formpage extends Model
         'id'
     ];
     protected $fillable = [
-        'nom'
+        'nom','form_id'
     ];
 
     public function questions()
